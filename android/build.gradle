@@ -2,7 +2,7 @@ group 'com.jhomlala.better_player.better_player'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.exoPlayerVersion = "2.18.1"
+    ext.exoPlayerVersion = "2.18.6"
     ext.lifecycleVersion = "2.6.0-alpha02"
     ext.annotationVersion = "1.4.0"
     ext.workVersion = "2.7.1"

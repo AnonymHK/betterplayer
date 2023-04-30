@@ -17,10 +17,10 @@ dependencies:
   cupertino_icons: ^1.0.5
   wakelock: ^0.6.2
   meta: ^1.8.0
-  flutter_widget_from_html_core: ^0.8.5+3
-  visibility_detector: ^0.3.3
-  path_provider: ^2.0.11
-  collection: ^1.16.0
+  flutter_widget_from_html_core: ^0.10.0
+  visibility_detector: ^0.4.0+2
+  path_provider: ^2.0.14
+  collection: ^1.17.0
   xml: ^6.1.0
 
 dev_dependencies:
