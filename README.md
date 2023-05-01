@@ -1,3 +1,5 @@
+原作者不再更新，限于本人工作时间关系，极少会新增功能，主要目的是处理BUG，以及维护一些插件至新版!
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/jhomlala/betterplayer/master/media/logo.png">
 </p>
