@@ -1,4 +1,4 @@
-原作者不再更新，限于本人工作时间关系，极少会新增功能，主要目的是处理BUG，以及维护一些插件至新版!
+ The original author is no longer updated. Due to my tight working hours, I rarely add new features. The main purpose is to handle bugs and maintain some plugins to the new version! 
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/jhomlala/betterplayer/master/media/logo.png">
