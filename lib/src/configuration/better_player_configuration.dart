@@ -71,6 +71,9 @@ class BetterPlayerConfiguration {
   ///Defines controls configuration
   final BetterPlayerControlsConfiguration controlsConfiguration;
 
+  ///Defines controls configuration, if null the default one will be used
+  final BetterPlayerControlsConfiguration? controlsConfigurationFullScreen;
+
   ///Defines fit of the video, allows to fix video stretching, see possible
   ///values here: https://api.flutter.dev/flutter/painting/BoxFit-class.html
   final BoxFit fit;
@@ -146,6 +149,7 @@ class BetterPlayerConfiguration {
     this.eventListener,
     this.subtitlesConfiguration = const BetterPlayerSubtitlesConfiguration(),
     this.controlsConfiguration = const BetterPlayerControlsConfiguration(),
+    this.controlsConfigurationFullScreen = null,
     this.fit = BoxFit.fill,
     this.rotation = 0,
     this.playerVisibilityChangedBehavior,
@@ -179,6 +183,7 @@ class BetterPlayerConfiguration {
     Function(BetterPlayerEvent)? eventListener,
     BetterPlayerSubtitlesConfiguration? subtitlesConfiguration,
     BetterPlayerControlsConfiguration? controlsConfiguration,
+    BetterPlayerControlsConfiguration? controlsConfigurationFullScreen,
     BoxFit? fit,
     double? rotation,
     Function(double visibilityFraction)? playerVisibilityChangedBehavior,
@@ -216,6 +221,8 @@ class BetterPlayerConfiguration {
           subtitlesConfiguration ?? this.subtitlesConfiguration,
       controlsConfiguration:
           controlsConfiguration ?? this.controlsConfiguration,
+      controlsConfigurationFullScreen: controlsConfigurationFullScreen ??
+          this.controlsConfigurationFullScreen,
       fit: fit ?? this.fit,
       rotation: rotation ?? this.rotation,
       playerVisibilityChangedBehavior: playerVisibilityChangedBehavior ??
