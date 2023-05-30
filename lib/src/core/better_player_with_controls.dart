@@ -27,6 +27,9 @@ class _BetterPlayerWithControlsState extends State<BetterPlayerWithControls> {
   BetterPlayerControlsConfiguration get controlsConfiguration =>
       widget.controller!.betterPlayerControlsConfiguration;
 
+  BetterPlayerControlsConfiguration? get controlsConfigurationFullScreen =>
+      widget.controller!.betterPlayerControlsConfigurationFullScreen;
+
   final StreamController<bool> playerVisibilityStreamController =
       StreamController();
 
@@ -171,29 +174,45 @@ class _BetterPlayerWithControlsState extends State<BetterPlayerWithControls> {
           playerTheme = BetterPlayerTheme.cupertino;
         }
       }
-
+      final _controlsConfiguration = _getControlsForFullscreenOrPortrait(
+        betterPlayerController,
+      );
       if (controlsConfiguration.customControlsBuilder != null &&
           playerTheme == BetterPlayerTheme.custom) {
         return controlsConfiguration.customControlsBuilder!(
             betterPlayerController, onControlsVisibilityChanged);
       } else if (playerTheme == BetterPlayerTheme.material) {
-        return _buildMaterialControl();
+        return _buildMaterialControl(_controlsConfiguration);
       } else if (playerTheme == BetterPlayerTheme.cupertino) {
-        return _buildCupertinoControl();
+        return _buildCupertinoControl(_controlsConfiguration);
       }
     }
 
     return const SizedBox();
   }
 
-  Widget _buildMaterialControl() {
+  BetterPlayerControlsConfiguration _getControlsForFullscreenOrPortrait(
+    BetterPlayerController betterPlayerController,
+  ) {
+    if (betterPlayerController.isFullScreen) {
+      return controlsConfigurationFullScreen ?? controlsConfiguration;
+    } else {
+      return controlsConfiguration;
+    }
+  }
+
+  Widget _buildMaterialControl(
+    BetterPlayerControlsConfiguration controlsConfiguration,
+  ) {
     return BetterPlayerMaterialControls(
       onControlsVisibilityChanged: onControlsVisibilityChanged,
       controlsConfiguration: controlsConfiguration,
     );
   }
 
-  Widget _buildCupertinoControl() {
+  Widget _buildCupertinoControl(
+    BetterPlayerControlsConfiguration controlsConfiguration,
+  ) {
     return BetterPlayerCupertinoControls(
       onControlsVisibilityChanged: onControlsVisibilityChanged,
       controlsConfiguration: controlsConfiguration,

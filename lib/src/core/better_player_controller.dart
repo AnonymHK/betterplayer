@@ -46,9 +46,18 @@ class BetterPlayerController {
   ///Controls configuration
   late BetterPlayerControlsConfiguration _betterPlayerControlsConfiguration;
 
+  ///Controls configuration, if null then the normal configuration will be used
+  late BetterPlayerControlsConfiguration?
+      _betterPlayerControlsConfigurationFullScreen;
+
   ///Controls configuration
   BetterPlayerControlsConfiguration get betterPlayerControlsConfiguration =>
       _betterPlayerControlsConfiguration;
+
+  ///Controls configuration For FullScreen
+  BetterPlayerControlsConfiguration?
+      get betterPlayerControlsConfigurationFullScreen =>
+          _betterPlayerControlsConfigurationFullScreen;
 
   ///Expose all active eventListeners
   List<Function(BetterPlayerEvent)?> get eventListeners =>
@@ -218,6 +227,8 @@ class BetterPlayerController {
   }) {
     this._betterPlayerControlsConfiguration =
         betterPlayerConfiguration.controlsConfiguration;
+    this._betterPlayerControlsConfigurationFullScreen =
+        betterPlayerConfiguration.controlsConfigurationFullScreen;
     _eventListeners.add(eventListener);
     if (betterPlayerDataSource != null) {
       setupDataSource(betterPlayerDataSource);
